@@ -6,7 +6,7 @@
       <slide>
         <selection option='A'></selection>
       </slide>
-      <slide v-for="rec in recsA">
+      <slide v-bind:key="rec.id" v-for="rec in recsA">
         <product 
           :img=rec.image
           :name=rec.name
@@ -18,7 +18,7 @@
       <slide>
         <selection option='B'></selection>
       </slide>
-      <slide v-for="rec in recsB">
+      <slide v-bind:key="rec.id" v-for="rec in recsB">
         <product 
           :img=rec.image
           :name=rec.name
