@@ -1,16 +1,31 @@
 <template>   
   <div class="card">
     <p>
-      <button>Opção {{option}}</button>
+      <button v-on:click="sendEvent()">Opção {{option}}</button>
     </p>
   </div>
 </template>
 
 <script>
+const axios = require('axios')
+
 export default {
   name: 'Select',
   props: {
     option: String
+  },
+  methods: {
+    sendEvent: function () {
+      const event = {
+        'cookie': document.cookie, 
+        'option': this.$options.propsData.option
+      }
+
+      axios.post('https://radiant-springs-66987.herokuapp.com/event', event)
+      .then(function () {
+        alert('Muito Obrigado!')
+      })
+    }
   }
 }
 </script>
@@ -19,11 +34,6 @@ export default {
 <style scoped>
 .card {
   max-width: 300px;
-}
-
-.price {
-  color: grey;
-  font-size: 22px;
 }
 
 .card button {
