@@ -55,12 +55,12 @@ export default {
   },
   mounted () {
     axios
-      .get(`http://radiant-springs-66987.herokuapp.com/rec/pln/${this.recFor}`)
+      .get(`https://radiant-springs-66987.herokuapp.com/rec/pln/${this.recFor}`)
       .then((response => {
         this.recsA = response.data.recs
       }))
     axios
-      .get(`http://radiant-springs-66987.herokuapp.com/rec/original/${this.recFor}`)
+      .get(`https://radiant-springs-66987.herokuapp.com/rec/original/${this.recFor}`)
       .then((response => {
         this.recsB = response.data.recs
       }))
